@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:job_ui_kit/data.dart';
 import 'package:job_ui_kit/details.dart';
 import 'package:job_ui_kit/jobwidget.dart';
-
+import 'package:job_ui_kit/searchview.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -85,64 +85,30 @@ class _ColumnBodyState extends State<ColumnBody> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 15.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  child: Text(
-                    'Find the worlds most',
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                    ),
+            padding: EdgeInsets.only(top: 15.0,left: 70.0),
+            child: FloatingActionButton.extended(
+              label: Text('Search Available Jobs'),
+              // <-- Text
+              backgroundColor: Color(0xff008080),
+              icon: Icon( // <-- Icon
+                Icons.search,
+                size: 24.0,
+
+              ),
+              onPressed: () {
+
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => MyApp1(),
                   ),
-                ),
-                Container(
-                  child: Text(
-                    'Amazing job',
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
+                );
+
+              },
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top:15.0,bottom:15.0,),
-            child: Material(
-              child: TextField(
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  suffixIcon: Container(
-                    padding: EdgeInsets.only(right: 10.0),
-                    child: Icon(
-                      Icons.search,
-                      color: Color(0xff008080),
-                      size: 30.0,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.grey.shade300,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.grey.shade300,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  hintText: 'Search Job',
-                ),
-              ),
-            ),
+            padding: EdgeInsets.only(top:15.0,bottom:15.0, left: 400,),
+
           ),
           Container(
             padding: EdgeInsets.only(bottom: 20.0),
@@ -158,13 +124,7 @@ class _ColumnBodyState extends State<ColumnBody> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
-                  child: Text(
-                    'See more',
-                    style: TextStyle(
-                      color: Color(0xff008080),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+
                 ),
               ],
             ),
@@ -214,7 +174,7 @@ class _ColumnBodyState extends State<ColumnBody> {
                     margin: EdgeInsets.all(8.0),
                     child: Center(
                       child: Image.asset(
-                        'images/behance.png',
+                        'images/com.jpg',
                         width: 35,
                         height: 35,
                       ),
@@ -238,7 +198,7 @@ class _ColumnBodyState extends State<ColumnBody> {
                     margin: EdgeInsets.all(8.0),
                     child: Center(
                       child: Image.asset(
-                        'images/dribbble.png',
+                        'images/dr.jpg',
                         width: 35,
                         height: 35,
                       ),
@@ -277,7 +237,7 @@ class _ColumnBodyState extends State<ColumnBody> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Browse By Company',
+                  'Most Available Jobs',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -285,13 +245,7 @@ class _ColumnBodyState extends State<ColumnBody> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 10.0),
-                  child: Text(
-                    'See more',
-                    style: TextStyle(
-                      color: Color(0xff008080),
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),
+
                 ),
               ],
             ),
